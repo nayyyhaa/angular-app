@@ -1,0 +1,12 @@
+<h1>{{title}} {{num1+num2}} {{obj}} {{transformedObj1()}} </h1>
+<p *ngFor="let o of obj">{{o}}</p>
+<p *ngFor="let o of transformedObj1()">
+  key: {{o}} , value: {{obj1[o]}}</p>
+<!-- 
+<input (input)="getInput($event)">
+<button (click)="displayInput()">say</button>
+<p>{{displayUsername}}</p> -->
+
+<input [(ngModel)]="userName">
+<button (click)="displayInput()">say</button>
+<p>{{userName}}</p>
