@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {map,filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,19 @@ export class LoginComponent implements OnInit {
     console.log("uo");
   }
   login(){
-    console.log(this.loginForm.value);
+    //observable throwing email & password 
+
+    // //map - part of object
+    // const mapObserver = this.loginForm.valueChanges.pipe(map(data => {
+    //   return data.email;
+    // }));
+
+    //filter -fire only if condition is satisfied
+    const mapObserver = this.loginForm.valueChanges.pipe(filter(data => {
+      return data.email=="neha@gmail";
+    }));
+    mapObserver.subscribe(data => {
+      console.log(data);
+    })
   }
 }
